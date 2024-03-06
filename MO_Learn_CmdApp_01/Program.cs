@@ -16,14 +16,14 @@
 
             while (key == "y")
             {
-                Calculator.run();
+                Calculator.runCalculator();
                 
                 Console.WriteLine("Repeat procedure ? [Y/n]: ");
                 key = Console.ReadLine();
             }
         }
 
-        public static void run ()
+        public static void runCalculator ()
         {
             Console.Clear();
 
