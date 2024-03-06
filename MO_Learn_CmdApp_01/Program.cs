@@ -6,13 +6,15 @@
     {
         static void Main(string[] args)
         {
-            string key = "y";
+            string key;
+            
+            key = "y";
 
             while (key == "y")
             {
                 Calculator.run();
                 
-                Console.WriteLine("Repeat ? [Y/n]: ");
+                Console.WriteLine("Repeat procedure ? [Y/n]: ");
                 key = Console.ReadLine();
             }
         }
@@ -58,7 +60,7 @@
                     break;
             }
 
-            Console.WriteLine($"Result: {result}", result); 
+            Console.WriteLine($"\nResult: {result}", result); 
         }
     }
 }
