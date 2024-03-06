@@ -10,10 +10,26 @@
 
             while (key == "y")
             {
-                Calculator.runCalculator();
-                
-                Console.WriteLine("Repeat procedure ? [Y/n]: ");
-                key = Console.ReadLine();
+                try
+                { 
+                    Calculator.runCalculator();
+                }
+                catch (DivideByZeroException dbze)
+                {
+                    Console.WriteLine("Divide by zero exception");
+                    Console.WriteLine($"Method: {dbze.TargetSite}", dbze.TargetSite);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    Console.WriteLine($"Method: {e.TargetSite}",e.TargetSite);
+                    //Console.WriteLine($"Trace: {e.StackTrace}", e.StackTrace);
+                }
+                finally
+                { 
+                    Console.WriteLine("Repeat procedure ? [Y/n]: ");
+                    key = Console.ReadLine();
+                }
             }
         }
 
@@ -37,7 +53,7 @@
             Console.WriteLine("1 - add");
             Console.WriteLine("2 - substract");
             Console.WriteLine("3 - multiply");
-            Console.WriteLine("4 - divide");
+            Console.WriteLine("4 - divide\n");
 
             switch (Console.ReadLine())
             {
@@ -54,8 +70,14 @@
                     break;
 
                 case "4":
+                    if (num2 == 0)
+                    {
+                        throw new DivideByZeroException();
+                    }
                     result = num1 / num2;
                     break;
+                default:
+                    throw new Exception("There is no such operation in the list !");
             }
 
             Console.WriteLine($"\nResult: {result}", result); 
