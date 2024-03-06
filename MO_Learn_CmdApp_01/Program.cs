@@ -27,7 +27,7 @@
         {
             Console.Clear();
 
-            Console.WriteLine("============================ MO Calculator ============================ ");
+            Console.WriteLine("============================ Calculator adjusted ============================ ");
 
             float   num1    = 0,
                     num2    = 0,
